@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04205F9A1760B71300E0ED12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205F991760B71300E0ED12 /* Default-568h@2x.png */; };
+		04205F9C1760B72700E0ED12 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205F9B1760B72700E0ED12 /* Default@2x.png */; };
+		04205F9E1760B73A00E0ED12 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205F9D1760B73A00E0ED12 /* Default.png */; };
+		04205FA01760B76500E0ED12 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205F9F1760B76500E0ED12 /* Default-Portrait~ipad.png */; };
+		04205FA21760B76E00E0ED12 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205FA11760B76E00E0ED12 /* Default-Landscape~ipad.png */; };
+		04205FA41760B77700E0ED12 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205FA31760B77700E0ED12 /* Default-Portrait@2x~ipad.png */; };
+		04205FA61760B77900E0ED12 /* Default-Landscape@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 04205FA51760B77900E0ED12 /* Default-Landscape@2x~ipad.png */; };
 		04F0B4D01760A780009210EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F0B4CF1760A780009210EF /* UIKit.framework */; };
 		04F0B4D21760A780009210EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F0B4D11760A780009210EF /* Foundation.framework */; };
 		04F0B4D41760A780009210EF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F0B4D31760A780009210EF /* CoreGraphics.framework */; };
@@ -17,11 +24,18 @@
 		04F0B4E41760A780009210EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4E31760A780009210EF /* Default@2x.png */; };
 		04F0B4E61760A780009210EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4E51760A780009210EF /* Default-568h@2x.png */; };
 		04F0B4E91760A780009210EF /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4E81760A780009210EF /* TKViewController.m */; };
-		04F0B4EC1760A780009210EF /* TKViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4EA1760A780009210EF /* TKViewController_iPhone.xib */; };
-		04F0B4EF1760A780009210EF /* TKViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4ED1760A780009210EF /* TKViewController_iPad.xib */; };
+		04F0B4F71760A8DB009210EF /* TKImageIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4F61760A8BF009210EF /* TKImageIpsum.m */; };
+		04F0B4FD1760ADE5009210EF /* TKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4FC1760ADE5009210EF /* TKTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04205F991760B71300E0ED12 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		04205F9B1760B72700E0ED12 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		04205F9D1760B73A00E0ED12 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		04205F9F1760B76500E0ED12 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		04205FA11760B76E00E0ED12 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		04205FA31760B77700E0ED12 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		04205FA51760B77900E0ED12 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
 		04F0B4CC1760A780009210EF /* TKImageIpsumDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TKImageIpsumDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F0B4CF1760A780009210EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		04F0B4D11760A780009210EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,8 +51,10 @@
 		04F0B4E51760A780009210EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04F0B4E71760A780009210EF /* TKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
 		04F0B4E81760A780009210EF /* TKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
-		04F0B4EB1760A780009210EF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TKViewController_iPhone.xib; sourceTree = "<group>"; };
-		04F0B4EE1760A780009210EF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TKViewController_iPad.xib; sourceTree = "<group>"; };
+		04F0B4F51760A8BF009210EF /* TKImageIpsum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKImageIpsum.h; sourceTree = SOURCE_ROOT; };
+		04F0B4F61760A8BF009210EF /* TKImageIpsum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKImageIpsum.m; sourceTree = SOURCE_ROOT; };
+		04F0B4FB1760ADE5009210EF /* TKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKTableViewCell.h; sourceTree = "<group>"; };
+		04F0B4FC1760ADE5009210EF /* TKTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,13 @@
 		04F0B4C31760A780009210EF = {
 			isa = PBXGroup;
 			children = (
+				04205FA51760B77900E0ED12 /* Default-Landscape@2x~ipad.png */,
+				04205FA31760B77700E0ED12 /* Default-Portrait@2x~ipad.png */,
+				04205FA11760B76E00E0ED12 /* Default-Landscape~ipad.png */,
+				04205F9F1760B76500E0ED12 /* Default-Portrait~ipad.png */,
+				04205F9D1760B73A00E0ED12 /* Default.png */,
+				04205F9B1760B72700E0ED12 /* Default@2x.png */,
+				04205F991760B71300E0ED12 /* Default-568h@2x.png */,
 				04F0B4D51760A780009210EF /* TKImageIpsumDemo */,
 				04F0B4CE1760A780009210EF /* Frameworks */,
 				04F0B4CD1760A780009210EF /* Products */,
@@ -85,12 +108,14 @@
 		04F0B4D51760A780009210EF /* TKImageIpsumDemo */ = {
 			isa = PBXGroup;
 			children = (
+				04F0B4F51760A8BF009210EF /* TKImageIpsum.h */,
+				04F0B4F61760A8BF009210EF /* TKImageIpsum.m */,
 				04F0B4DE1760A780009210EF /* TKAppDelegate.h */,
 				04F0B4DF1760A780009210EF /* TKAppDelegate.m */,
 				04F0B4E71760A780009210EF /* TKViewController.h */,
 				04F0B4E81760A780009210EF /* TKViewController.m */,
-				04F0B4EA1760A780009210EF /* TKViewController_iPhone.xib */,
-				04F0B4ED1760A780009210EF /* TKViewController_iPad.xib */,
+				04F0B4FB1760ADE5009210EF /* TKTableViewCell.h */,
+				04F0B4FC1760ADE5009210EF /* TKTableViewCell.m */,
 				04F0B4D61760A780009210EF /* Supporting Files */,
 			);
 			path = TKImageIpsumDemo;
@@ -166,8 +191,13 @@
 				04F0B4E21760A780009210EF /* Default.png in Resources */,
 				04F0B4E41760A780009210EF /* Default@2x.png in Resources */,
 				04F0B4E61760A780009210EF /* Default-568h@2x.png in Resources */,
-				04F0B4EC1760A780009210EF /* TKViewController_iPhone.xib in Resources */,
-				04F0B4EF1760A780009210EF /* TKViewController_iPad.xib in Resources */,
+				04205F9A1760B71300E0ED12 /* Default-568h@2x.png in Resources */,
+				04205F9C1760B72700E0ED12 /* Default@2x.png in Resources */,
+				04205F9E1760B73A00E0ED12 /* Default.png in Resources */,
+				04205FA01760B76500E0ED12 /* Default-Portrait~ipad.png in Resources */,
+				04205FA21760B76E00E0ED12 /* Default-Landscape~ipad.png in Resources */,
+				04205FA41760B77700E0ED12 /* Default-Portrait@2x~ipad.png in Resources */,
+				04205FA61760B77900E0ED12 /* Default-Landscape@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +211,8 @@
 				04F0B4DC1760A780009210EF /* main.m in Sources */,
 				04F0B4E01760A780009210EF /* TKAppDelegate.m in Sources */,
 				04F0B4E91760A780009210EF /* TKViewController.m in Sources */,
+				04F0B4F71760A8DB009210EF /* TKImageIpsum.m in Sources */,
+				04F0B4FD1760ADE5009210EF /* TKTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,22 +225,6 @@
 				04F0B4D91760A780009210EF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		04F0B4EA1760A780009210EF /* TKViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04F0B4EB1760A780009210EF /* en */,
-			);
-			name = TKViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		04F0B4ED1760A780009210EF /* TKViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				04F0B4EE1760A780009210EF /* en */,
-			);
-			name = TKViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -313,6 +329,7 @@
 				04F0B4F41760A780009210EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

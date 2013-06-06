@@ -1,5 +1,5 @@
 //
-//  TKViewController.h
+//  TKTableViewCell.h
 //  TKImageIpsumDemo
 //
 //  Created by Tomasz Kuźma on 6/6/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TKViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TKTableViewCell : UITableViewCell
 
 @end

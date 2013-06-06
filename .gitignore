@@ -1,0 +1,33 @@
+# xcode noise
+build/*
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+*.mode1
+*.mode2v3
+*.mode1v3
+*.xcbkptlist
+xcuserdata
+xcuserdatad
+Snapshots
+*.xcbkptlist
+
+# osx noise
+.DS_Store
+
+# don't commit *zip files
+*.zip
+
+# emacs noise
+*~
+*#
+.#.gitignore
+
+# Cocoapods
+Podfile.lock
+Pods/
+
+#Archived Builds
+Archives/
+
