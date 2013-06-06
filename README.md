@@ -1,17 +1,16 @@
 #TKImageIpsum
 
-***
-
 ##About
 
 
-TKImageIpsum is a small helper class which can download random images with given from [http://lorempixel.com/](http://lorempixel.com/) or other similar service. Fetched images are cached in memory with the `key` and `group` parametes as identifiers.
+TKImageIpsum is a small helper class which can download random images with given size from [http://lorempixel.com/](http://lorempixel.com/) or other similar service. Fetched images are cached in the memory with the `key` and `group` parametes as identifiers.
 
 ##How it works
+
 It uses a `NSOperationQueue` that consumes `NSBlockOperation` blocks to check the `NSCache` and if cache is empty to download an image from the given formatURL using `[NSData dataWithContentsOfURL:]`. Caches can be cleaned in low memory situations.
 
 ##Usage
-To get a random UIImage with size of `CGSize size` simply call:
+To get a random `UIImage` with size of `CGSize size` simply call:
 
 		[TKImageIpsum getRandomImageWithSize:(CGSize)size withCompletionBlock:^(UIImage *image){
 			// your code
@@ -19,6 +18,7 @@ To get a random UIImage with size of `CGSize size` simply call:
 
 
 and then use the returned UIImage instance from within the block how you want :D
+
 You can also use 
 
 			+ (void)getRandomImageWithSize:(CGSize)size
@@ -62,7 +62,7 @@ and remember to call
 
 		cell.imageView.image = nil
 
-inside overriden `prepareForReuse` in your cell subclass (UITableViewCell and UICollectionViewCell)
+inside overriden `prepareForReuse` in your cell subclass of `UITableViewCell` or `UICollectionViewCell`
 
 
 ##Demo project
