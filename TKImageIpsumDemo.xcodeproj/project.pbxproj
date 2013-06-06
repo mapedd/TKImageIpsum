@@ -30,9 +30,6 @@
 		04F0B4DA1760A780009210EF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4D81760A780009210EF /* InfoPlist.strings */; };
 		04F0B4DC1760A780009210EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4DB1760A780009210EF /* main.m */; };
 		04F0B4E01760A780009210EF /* TKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4DF1760A780009210EF /* TKAppDelegate.m */; };
-		04F0B4E21760A780009210EF /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4E11760A780009210EF /* Default.png */; };
-		04F0B4E41760A780009210EF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4E31760A780009210EF /* Default@2x.png */; };
-		04F0B4E61760A780009210EF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04F0B4E51760A780009210EF /* Default-568h@2x.png */; };
 		04F0B4E91760A780009210EF /* TKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4E81760A780009210EF /* TKViewController.m */; };
 		04F0B4F71760A8DB009210EF /* TKImageIpsum.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4F61760A8BF009210EF /* TKImageIpsum.m */; };
 		04F0B4FD1760ADE5009210EF /* TKTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F0B4FC1760ADE5009210EF /* TKTableViewCell.m */; };
@@ -66,9 +63,6 @@
 		04F0B4DD1760A780009210EF /* TKImageIpsumDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TKImageIpsumDemo-Prefix.pch"; sourceTree = "<group>"; };
 		04F0B4DE1760A780009210EF /* TKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKAppDelegate.h; sourceTree = "<group>"; };
 		04F0B4DF1760A780009210EF /* TKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKAppDelegate.m; sourceTree = "<group>"; };
-		04F0B4E11760A780009210EF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		04F0B4E31760A780009210EF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		04F0B4E51760A780009210EF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04F0B4E71760A780009210EF /* TKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
 		04F0B4E81760A780009210EF /* TKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
 		04F0B4F51760A8BF009210EF /* TKImageIpsum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKImageIpsum.h; sourceTree = SOURCE_ROOT; };
@@ -174,9 +168,6 @@
 				04F0B4D81760A780009210EF /* InfoPlist.strings */,
 				04F0B4DB1760A780009210EF /* main.m */,
 				04F0B4DD1760A780009210EF /* TKImageIpsumDemo-Prefix.pch */,
-				04F0B4E11760A780009210EF /* Default.png */,
-				04F0B4E31760A780009210EF /* Default@2x.png */,
-				04F0B4E51760A780009210EF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -234,9 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F0B4DA1760A780009210EF /* InfoPlist.strings in Resources */,
-				04F0B4E21760A780009210EF /* Default.png in Resources */,
-				04F0B4E41760A780009210EF /* Default@2x.png in Resources */,
-				04F0B4E61760A780009210EF /* Default-568h@2x.png in Resources */,
 				04205F9A1760B71300E0ED12 /* Default-568h@2x.png in Resources */,
 				04205F9C1760B72700E0ED12 /* Default@2x.png in Resources */,
 				04205F9E1760B73A00E0ED12 /* Default.png in Resources */,
