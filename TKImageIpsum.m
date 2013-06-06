@@ -50,7 +50,7 @@ static NSString *const placeholder = @"TKPlaceholder";
 - (void)imageWithSize:(CGSize)size group:(id<NSCopying>)group key:(id<NSCopying>)key completion:(void (^)(UIImage *image))completionBlock{
     
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@"image for key %@ group %@", key, group);
+
         CGSize fetchSize = CGSizeEqualToSize(CGSizeZero, size) ? self.defaultSize : size;
         
         UIImage *image;
@@ -105,6 +105,19 @@ NSLog(@"image for key %@ group %@", key, group);
     });
     
     return singleton;
+}
+
+- (void)clearCaches{
+    for (id key in self.caches) {
+        NSCache *cache = self.caches[key];
+        [cache removeAllObjects];
+    }
+}
+
+#pragma mark - Public
+
++ (void)clearCaches{
+    [[TKImageIpsum lorem] clearCaches];
 }
 
 + (void)getRandomImageWithSize:(CGSize)size

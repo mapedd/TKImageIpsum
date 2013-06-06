@@ -9,6 +9,8 @@
 
 @interface TKImageIpsum : NSObject <NSCacheDelegate>
 
++ (void)clearCaches;
+
 + (void)getRandomImageWithCompletionBlock:(void (^)(UIImage *image))completionBlock;
 
 + (void)getRandomImageWithSize:(CGSize)size withCompletionBlock:(void (^)(UIImage *image))completionBlock;

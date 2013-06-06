@@ -16,6 +16,8 @@
 
 @implementation TKViewController
 
+#pragma mark - UIViewController
+
 - (id)init{
     self = [super initWithNibName:nil bundle:nil];
     if(!self)return nil;
@@ -32,6 +34,7 @@
     tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:tableView];
 }
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -77,6 +80,7 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+    [TKImageIpsum clearCaches];
 }
 
 @end
