@@ -13,15 +13,57 @@ It uses a `NSOperationQueue` that consumes `NSBlockOperation` blocks to check th
 ##Usage
 To get a random UIImage with size of `CGSize size` simply call:
 
-		[TKImageIpsum getRandomImageWithSize:(CGSize)size withCompletionBlock:^(UIImage *image){}];
+		[TKImageIpsum getRandomImageWithSize:(CGSize)size withCompletionBlock:^(UIImage *image){
+			// your code
+		}];
 
 
 and then use the returned UIImage instance from within the block how you want :D
 You can also use 
 
-			+ (void)getRandomImageWithSize:(CGSize)size group:(id<NSCopying>)group key:(id<NSCopying>)key withCompletionBlock:(void (^)(UIImage *image))completionBlock;
+			+ (void)getRandomImageWithSize:(CGSize)size
+								     group:(id<NSCopying>)group
+								       key:(id<NSCopying>)key
+			          withCompletionBlock:(void (^)(UIImage *image))completionBlock;
 			
 with `group` and `key` parameter if you want to have few UITable/UICollectionViews filled with random images, see demo for a idea how to use it.
+
+##Note
+
+If you want to set image for UITableViewCell call `[cell setNeedsLayout]` in the block:
+
+
+		- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+		    static NSString *CellIdentifier = @"Cell";
+		    
+		    
+		    TKTableViewCell *cell = (TKTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		    if (cell == nil) {
+		        cell = [[TKTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle 											   reuseIdentifier:CellIdentifier];
+		    }
+		    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d", indexPath.row + 1];
+		    
+		    [TKImageIpsum getRandomImageWithSize:CGSizeMake(tableView.rowHeight, tableView.rowHeight)
+		                                   group:self.title
+		                                     key:indexPath
+		                     withCompletionBlock:^(UIImage *image) {
+		                         dispatch_async(dispatch_get_main_queue(), ^{
+		                             if ([[tableView indexPathForCell:cell] isEqual:indexPath]) {
+		                                 cell.imageView.image = image;
+		                                 [cell setNeedsLayout];
+		                             }
+		                         });
+		                     }];
+		    
+		    return cell;
+		}
+		
+and remember to call  
+
+		cell.imageView.image = nil
+
+inside overriden `prepareForReuse` in your cell subclass (UITableViewCell and UICollectionViewCell)
+
 
 ##Demo project
 ✔ Attached
