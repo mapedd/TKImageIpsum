@@ -19,7 +19,7 @@
 
 + (void)getRandomImageWithSize:(CGSize)size group:(id<NSCopying>)group key:(id<NSCopying>)key withCompletionBlock:(void (^)(UIImage *image))completionBlock;
 
-/* Default is http://lorempixel.com/%d/%d */
+/* Default is http://lorempixel.com/%d/%d/food */
 @property (nonatomic, copy) NSString *urlFormat;
 
 /* Default is 100 x 100 */

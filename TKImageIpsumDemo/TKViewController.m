@@ -10,7 +10,9 @@
 #import "TKTableViewCell.h"
 #import "TKImageIpsum.h"
 
-@interface TKViewController ()
+@interface TKViewController (){
+    UITableView *_tableView;
+}
 
 @end
 
@@ -27,18 +29,26 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.rowHeight = 100;
-    tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.rowHeight = 120;
+    _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:_tableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSIndexPath *indexPath = [_tableView indexPathForSelectedRow];
+    if (indexPath) {
+        [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -53,9 +63,15 @@
     if (cell == nil) {
         cell = [[TKTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d", indexPath.row + 1];
+    cell.textLabel.text = [NSString stringWithFormat:@"Cell %d,%d",indexPath.section + 1, indexPath.row + 1];
     
-    [TKImageIpsum getRandomImageWithSize:CGSizeMake(tableView.rowHeight, tableView.rowHeight)
+    CGSize size = CGSizeMake(tableView.rowHeight, tableView.rowHeight);
+    
+    if ([[UIScreen mainScreen] scale]>1.0f) {
+        size.height = size.width *= 2.0f;
+    }
+    
+    [TKImageIpsum getRandomImageWithSize:size
                                    group:self.title
                                      key:indexPath
                      withCompletionBlock:^(UIImage *image) {
@@ -74,7 +90,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     TKViewController *vc = [[TKViewController alloc] init];
-    vc.title = [indexPath description];
+    vc.title = [NSString stringWithFormat:@"Screen %d,%d", indexPath.row, indexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

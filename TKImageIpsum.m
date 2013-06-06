@@ -15,6 +15,10 @@ static NSString *const placeholder = @"TKPlaceholder";
 
 @property (nonatomic, strong) NSMutableDictionary *caches;
 
+@property (nonatomic, strong) NSLock *lock;
+
+@property (nonatomic,assign) NSInteger activeDownloads;
+
 @end
 
 @implementation TKImageIpsum
@@ -25,9 +29,18 @@ static NSString *const placeholder = @"TKPlaceholder";
     return self;
 }
 
+#pragma mark - Getters
+
+- (NSLock *)lock{
+    if (!_lock) {
+        _lock = [[NSLock alloc] init];
+    }
+    return _lock;
+}
+
 - (NSString *)urlFormat{
     if (!_urlFormat) {
-        _urlFormat = @"http://lorempixel.com/%d/%d";
+        _urlFormat = @"http://lorempixel.com/%d/%d/food";
     }
     return _urlFormat;
 }
@@ -35,7 +48,7 @@ static NSString *const placeholder = @"TKPlaceholder";
 - (NSOperationQueue *)queue{
     if (!_queue) {
         _queue = [[NSOperationQueue alloc] init];
-        _queue.maxConcurrentOperationCount = 1;
+        _queue.maxConcurrentOperationCount = 4;
     }
     return _queue;
 }
@@ -46,6 +59,27 @@ static NSString *const placeholder = @"TKPlaceholder";
     }
     return _caches;
 }
+
+#pragma mark - Setters
+
+- (void)setActiveDownloads:(NSInteger)activeDownloads{
+    if (_activeDownloads != activeDownloads) {
+        
+        [self.lock lock];
+        _activeDownloads = activeDownloads;
+        
+        BOOL showingIndicator = [UIApplication sharedApplication].networkActivityIndicatorVisible;
+        
+        if (_activeDownloads > 0 && !showingIndicator)
+             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        else if(_activeDownloads == 0 && showingIndicator)
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        
+        [self.lock unlock];
+    }
+}
+
+#pragma mark - Private
 
 - (void)imageWithSize:(CGSize)size group:(id<NSCopying>)group key:(id<NSCopying>)key completion:(void (^)(UIImage *image))completionBlock{
     
@@ -73,7 +107,7 @@ static NSString *const placeholder = @"TKPlaceholder";
             [cache setObject:placeholder forKey:key ?: placeholder];
         }
     
-        
+        self.activeDownloads ++;
         NSInteger width = fetchSize.width;
         NSInteger height = fetchSize.height;
         NSString *stringURL = [NSString stringWithFormat:self.urlFormat, width, height];
@@ -85,6 +119,8 @@ static NSString *const placeholder = @"TKPlaceholder";
             [cache setObject:image forKey:key ?: placeholder];
         else
             [cache removeObjectForKey:key ?: placeholder];
+        
+        self.activeDownloads --;
         
         if (completionBlock) {
             completionBlock(image);
