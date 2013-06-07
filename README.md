@@ -66,6 +66,9 @@ and remember to call
 
 inside overriden `prepareForReuse` in your cell subclass of `UITableViewCell` or `UICollectionViewCell`
 
+##Cocoapods
+✔ Obviously 
+
 
 ##Demo project
 ✔ Attached
