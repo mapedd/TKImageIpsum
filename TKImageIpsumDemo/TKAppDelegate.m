@@ -15,7 +15,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     TKViewController *vc = [[TKViewController alloc] init];
-    vc.title = NSLocalizedString(@"TKImageIpsum",nil);
+    vc.title = NSLocalizedString(@"TKImageIpsum:people",nil);
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     self.viewController = nav;
     self.window.rootViewController = self.viewController;

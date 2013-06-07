@@ -40,7 +40,7 @@ static NSString *const placeholder = @"TKPlaceholder";
 
 - (NSString *)urlFormat{
     if (!_urlFormat) {
-        _urlFormat = @"http://lorempixel.com/%d/%d/food";
+        _urlFormat = @"http://lorempixel.com/%d/%d";
     }
     return _urlFormat;
 }
@@ -81,7 +81,7 @@ static NSString *const placeholder = @"TKPlaceholder";
 
 #pragma mark - Private
 
-- (void)imageWithSize:(CGSize)size group:(id<NSCopying>)group key:(id<NSCopying>)key completion:(void (^)(UIImage *image))completionBlock{
+- (void)imageWithSize:(CGSize)size urlFormat:(NSString *)urlFormat group:(id<NSCopying>)group key:(id<NSCopying>)key completion:(void (^)(UIImage *image))completionBlock{
     
     NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
 
@@ -110,7 +110,7 @@ static NSString *const placeholder = @"TKPlaceholder";
         self.activeDownloads ++;
         NSInteger width = fetchSize.width;
         NSInteger height = fetchSize.height;
-        NSString *stringURL = [NSString stringWithFormat:self.urlFormat, width, height];
+        NSString *stringURL = [NSString stringWithFormat:urlFormat ?: self.urlFormat , width, height];
         NSURL *url = [NSURL URLWithString:stringURL];
         NSData *data = [NSData dataWithContentsOfURL:url];
         image = [UIImage imageWithData:data];
@@ -132,6 +132,22 @@ static NSString *const placeholder = @"TKPlaceholder";
     [self.queue addOperation:operation];
 }
 
+
+
+- (void)clearCacheForGroup:(id<NSCopying>)group{
+    if (group) {
+        NSCache *cache = self.caches[group];
+        [cache removeAllObjects];
+    }else{
+        for (id keyInDict in self.caches) {
+            NSCache *cache = self.caches[keyInDict];
+            [cache removeAllObjects];
+        }
+    }
+}
+
+#pragma mark - Public
+
 + (TKImageIpsum *)lorem{
     static TKImageIpsum *singleton;
     
@@ -143,36 +159,40 @@ static NSString *const placeholder = @"TKPlaceholder";
     return singleton;
 }
 
-- (void)clearCaches{
-    for (id key in self.caches) {
-        NSCache *cache = self.caches[key];
-        [cache removeAllObjects];
-    }
++ (void)clearCaches{
+    [[TKImageIpsum lorem] clearCacheForGroup:nil];
 }
 
-#pragma mark - Public
++ (void)clearCachesForGroup:(id<NSCopying>)group{
+    [[TKImageIpsum lorem] clearCacheForGroup:group];
+}
 
-+ (void)clearCaches{
-    [[TKImageIpsum lorem] clearCaches];
+
++ (void)getRandomImageWithSize:(CGSize)size
+                     urlFormat:(NSString *)urlFormat
+                         group:(id<NSCopying>)group
+                           key:(id<NSCopying>)key
+           withCompletionBlock:(void (^)(UIImage *image))completionBlock{
+    [[TKImageIpsum lorem] imageWithSize:size urlFormat:urlFormat group:group key:key completion:completionBlock];
 }
 
 + (void)getRandomImageWithSize:(CGSize)size
                            group:(id<NSCopying>)group
                             key:(id<NSCopying>)key
            withCompletionBlock:(void (^)(UIImage *image))completionBlock{
-    [[TKImageIpsum lorem] imageWithSize:size group:group key:key completion:completionBlock];
+    [[TKImageIpsum lorem] imageWithSize:size urlFormat:nil group:group key:key completion:completionBlock];
 }
 
 + (void)getRandomImageWithSize:(CGSize)size key:(id<NSCopying>)key withCompletionBlock:(void (^)(UIImage *image))completionBlock{
-    [[TKImageIpsum lorem] imageWithSize:size group:@"group" key:key completion:completionBlock];
+    [[TKImageIpsum lorem] imageWithSize:size urlFormat:nil group:@"group" key:key completion:completionBlock];
 }
 
 + (void)getRandomImageWithSize:(CGSize)size withCompletionBlock:(void (^)(UIImage *image))completionBlock{
-    [[TKImageIpsum lorem] imageWithSize:size group:@"group" key:@"key" completion:completionBlock];
+    [[TKImageIpsum lorem] imageWithSize:size urlFormat:nil group:@"group" key:@"key" completion:completionBlock];
 }
 
 + (void)getRandomImageWithCompletionBlock:(void (^)(UIImage *image))completionBlock{
-    [[TKImageIpsum lorem] imageWithSize:CGSizeZero group:@"group" key:@"key" completion:completionBlock];
+    [[TKImageIpsum lorem] imageWithSize:CGSizeZero urlFormat:nil  group:@"group" key:@"key" completion:completionBlock];
 }
 
 #pragma mark - NSCacheDelegate
